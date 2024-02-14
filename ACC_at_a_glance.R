@@ -50,3 +50,14 @@ acc_tourney %>%
   labs(title = 'ACC Resumes',
        x = 'Wins against Bubble',
        y = 'Torvik Rank')
+
+acc_tourney %>% 
+  ggplot(aes(adj_o, adj_t, team = team)) +
+  geom_cbb_teams(width = 0.10) +
+  geom_mean_lines(aes(x0 = adj_o, y0 = adj_t), color = 'black') +
+  theme_minimal() +
+  theme(plot.title.position = 'plot',
+        plot.title = element_text(face = 'bold')) +
+  labs(title = 'ACC Offensive Style',
+       x = 'Offensive Efficiency',
+       y = 'Tempo')
